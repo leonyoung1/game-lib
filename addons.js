@@ -1,7 +1,7 @@
 //================= GAME OBJECT MODS =======================
 
 (function () {
-  this.intersects = function (objects, ratio, callback) {
+  this.intersectss = function (objects, ratio, callback) {
     //checks if callback is second parameter
     if (ratio !== undefined && typeof ratio === 'function') {
       callback = ratio;
