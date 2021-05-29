@@ -418,20 +418,25 @@ Phaser.GameObjects.Text.prototype.defuzz = function () {
 
 Phaser.GameObjects.GameObjectFactory.remove('text');
 Phaser.GameObjects.GameObjectFactory.register('text', function (x, y, text, style, size) {
-  var defaultFont = config.fontFamily ? config.fontFamily : "Courier";
+  var defaultFont = "Courier";
+  var defaultSize = 16;
+  if (config) {
+    defaultFont = config.fontFamily ? config.fontFamily : defaultFont;
+    defaultSize = config.fontSize ? config.fontSize : defaultSize;    
+  }
   if (typeof style == 'number') {
     var color = getHexColor("#", style);
     style = {
       fill: color,
       color: color,
       stroke: color,
-      fontSize: size ? size : 16,
+      fontSize: size ? size : defaultSize,
       fontFamily: defaultFont,
     };
   }
   if (style === undefined) {
     style = {
-      fontSize: size ? size : 16,
+      fontSize: size ? size : defaultSize,
       fontFamily: defaultFont,
     }
   }
