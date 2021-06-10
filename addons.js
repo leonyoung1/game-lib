@@ -420,10 +420,10 @@ Phaser.GameObjects.GameObjectFactory.remove('text');
 Phaser.GameObjects.GameObjectFactory.register('text', function (x, y, text, style, size) {
   var defaultFont = "Courier";
   var defaultSize = 16;
-  if (config) {
-    defaultFont = config.fontFamily ? config.fontFamily : defaultFont;
-    defaultSize = config.fontSize ? config.fontSize : defaultSize;    
-  }
+  // if (config == undefined) {
+  //   defaultFont = config.fontFamily ? config.fontFamily : defaultFont;
+  //   defaultSize = config.fontSize ? config.fontSize : defaultSize;    
+  // }
   if (typeof style == 'number') {
     var color = getHexColor("#", style);
     style = {
@@ -543,7 +543,28 @@ Phaser.GameObjects.GameObjectFactory.register('timer', function (ms, count, paus
   };
 
 }).call(Phaser.Animations.AnimationManager.prototype);
+    // create: function (config)
+    // {
+    //     var key = config.key;
 
+    //     var anim = false;
+
+    //     if (key)
+    //     {
+    //         anim = this.get(key);
+
+    //         if (!anim)
+    //         {
+    //             anim = new Animation(this, key, config);
+
+    //             this.anims.set(key, anim);
+
+    //             this.emit(Events.ADD_ANIMATION, key, anim);
+    //         }
+    //     }
+
+    //     return anim;
+    // },
 Phaser.GameObjects.Sprite.prototype.play = function (key, ignoreIfPlaying, startFrame) {
   this.anims.play(key, ignoreIfPlaying === undefined ? true : ignoreIfPlaying, startFrame);
   return this;
