@@ -420,11 +420,12 @@ Phaser.GameObjects.GameObjectFactory.remove('text');
 Phaser.GameObjects.GameObjectFactory.register('text', function (x, y, text, style, size) {
   var defaultFont = "Courier";
   var defaultSize = 16;
+  // this doesn't work for eval(code)
   // if (config != undefined) {
   //   defaultFont = config.fontFamily ? config.fontFamily : defaultFont;
   //   defaultSize = config.fontSize ? config.fontSize : defaultSize;    
   // }
-  console.log(this);
+  //console.log(this);
   if (typeof style == 'number') {
     var color = getHexColor("#", style);
     style = {
